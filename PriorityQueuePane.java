@@ -6,17 +6,13 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 
 class PriorityQueuePane extends VBox {
-	private MinHeap<Task> taskMinHeap;
-	private ListView<String> taskListView;
-
 	public PriorityQueuePane() {
-        taskMinHeap = new MinHeap<>();
-
-        taskListView = new ListView<>();
+        ListView<String> taskListView = new ListView<>();
         Button addButton = new Button("Add Task");
         Button removeButton = new Button("Remove Task");
 
-        addButton.setOnAction(event -> {
-        }
-        }
+        getChildren().addAll(taskListView, addButton, removeButton);
+        setSpacing(10);
+        setAlignment(Pos.CENTER);
+    }
 }

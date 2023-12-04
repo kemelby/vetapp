@@ -6,17 +6,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 
 class MessageRotationPane extends HBox {
-    private CircularLinkedList<String> messageList;
-    private Label messageLabel;
+	 public MessageRotationPane() {
+	        Label messageLabel = new Label();
+	        Button addButton = new Button("Add Message");
+	        Button removeButton = new Button("Remove Message");
 
-    public MessageRotationPane() {
-        messageList = new CircularLinkedList<>();
-
-        messageLabel = new Label();
-        Button addButton = new Button("Add Message");
-        Button removeButton = new Button("Remove Message");
-
-        addButton.setOnAction(event -> {
-        	
-        }
-}
+	        getChildren().addAll(messageLabel, addButton, removeButton);
+	        setSpacing(10);
+	        setAlignment(Pos.CENTER);
+	    }
+	}

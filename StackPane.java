@@ -8,10 +8,13 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 
 class StackPane extends VBox {
-    private Stack<Task> taskStack;
-    private ListView<String> stackListView;
+	 public StackPane() {
+	        ListView<String> stackListView = new ListView<>();
+	        Button pushButton = new Button("Push Task");
+	        Button popButton = new Button("Pop Task");
 
-    public StackPane() {
-        taskStack = new Stack<>();
-    }
-}
+	        getChildren().addAll(stackListView, pushButton, popButton);
+	        setSpacing(10);
+	        setAlignment(Pos.CENTER);
+	    }
+	}
