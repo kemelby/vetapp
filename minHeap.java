@@ -10,12 +10,12 @@ public class minHeap<T extends Comparable<? super T>> {
 	private T[] heap;
 	private int size;
 	
-	public BinaryMinHeap(int capacity) {
-		heap = (T[]) (new Comparable[caoacity]);
+	public minHeap(int capacity) {
+		heap = (T[]) (new Comparable[capacity]);
 		size = 0;
 	} //Constructor
 	
-	public BinaryMinHeap(T[] array) {
+	public minHeap(T[] array) {
 		buildHeap(array);
 	}
 	
@@ -39,6 +39,18 @@ public class minHeap<T extends Comparable<? super T>> {
 		size++;
 	} //insert method
 	
+	private void percUp(int curIndex, int parent) {
+		T temp;
+		while(curIndex!= 0 && heap[curIndex].compareTo(heap[parent]) <0) {
+			temp = heap[curIndex];
+			heap[curIndex] = heap[parent];
+			heap[parent] = temp;
+			
+			curIndex = parent;
+			parent = (curIndex-1) / 2;
+		}
+	}
+	
 	public T deleteMin() throws IllegalStateException {
 		if (isEmpty()) {
 			throw new IllegalStateException("Empty heap has no min");
@@ -60,7 +72,7 @@ public class minHeap<T extends Comparable<? super T>> {
 				return;
 			}
 			swapIndex = curIndex;
-			if(heap[leftChild].compareTo(head[curIndex] < 0))
+			if(heap[leftChild].compareTo(heap[curIndex]) < 0)
 			{
 				swapIndex = leftChild;
 			}
@@ -86,7 +98,7 @@ public class minHeap<T extends Comparable<? super T>> {
 	} //buildHeap
 	
 	public static <Type extends Comparable<? super Type>> void heapSort(Type [] array) {
-		BinaryMinHeap<Type> bmh = new BinaryMinHeap<Type>(array);
+		minHeap<Type> bmh = new minHeap<Type>(array);
 		for (int i = array.length-1; i > 0; i--) {
 			array[i] = bmh.deleteMin();
 		}
