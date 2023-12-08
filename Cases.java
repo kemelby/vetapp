@@ -21,14 +21,14 @@ public class Cases extends Application {
     @Override
     public void start(Stage primaryStage) {
         // Initialize components
-        PriorityQueuePane priorityQueuePane = new PriorityQueuePane();
+        WaitingRoomQueuePane waitingRoomQueuePane = new WaitingRoomQueuePane();
         MessageRotationPane messageRotationPane = new MessageRotationPane();
         StackPane stackPane = new StackPane();
 
         // Set up the layout
         BorderPane borderPane = new BorderPane();
         borderPane.setLeft(stackPane);
-        borderPane.setRight(priorityQueuePane);
+        borderPane.setTop(waitingRoomQueuePane);
         borderPane.setBottom(messageRotationPane);
 
         // Create the scene
